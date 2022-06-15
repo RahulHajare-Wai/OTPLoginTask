@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace OTPLoginTask.Views.Nitifications
+namespace OTPLoginTask.Views.Notifications
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NotificationsView : ContentPage
+    public partial class AddNotificationView : ContentPage
     {
-        public NotificationsView()
+        public AddNotificationView()
         {
             InitializeComponent();
         }

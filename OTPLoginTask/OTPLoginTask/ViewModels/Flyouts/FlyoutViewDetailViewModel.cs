@@ -1,5 +1,5 @@
 ﻿using MvvmHelpers;
-using OTPLoginTask.Views.Nitifications;
+using OTPLoginTask.Views.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Text;

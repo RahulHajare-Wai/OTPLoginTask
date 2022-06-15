@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:notifications="clr-namespace:OTPLoginTask.ViewModels.Notifications" x:DataType="notifications:NotificationsViewViewModel"
+             xmlns:Model="clr-namespace:OTPLoginTask.Models"
+             NavigationPage.HasNavigationBar="False"
+             Model:ViewModelLocator.AutoWireViewModel="True"
+             x:Class="OTPLoginTask.Views.Notifications.NotificationsView">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--top navigation section-->
+            <Frame HeightRequest="55" BackgroundColor="#0094C5" Padding="0">
+                <StackLayout Orientation="Horizontal">
+                    <!--Back navigation arrow-->
+                    <StackLayout>
+                        <ImageButton Source="{Binding BackIcon}" Margin="5,10,0,0" Command="{Binding CommandBackPage}"
+                                    HeightRequest="30" WidthRequest="30" Padding="0" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="{Binding PageTitle}" TextColor="White" 
+                               FontSize="22" Margin="10,10,0,0" FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <ImageButton Source="plusIcon.png" Command="{Binding commandAddNotification}"
+                                     BackgroundColor="Transparent" Margin="0,12,10,0"
+                                     HeightRequest="30" WidthRequest="30" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <!--code for notifications-->
+            <StackLayout Margin="2,5,2,0" >
+                <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never"
+                            >
+                    <ListView ItemsSource="{Binding NotificationList}" Margin="5,4"
+                      HasUnevenRows="True" x:Name="personListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BackgroundColor="#8dbbc9" Padding="0" CornerRadius="8" Margin="0,5" BorderColor="#0095C5"
+                                           >
+                                        <Grid Padding="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="25"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="90" HorizontalOptions="Start">
+                                                <StackLayout>
+                                                    <ImageButton Source="wrong.png" HeightRequest="35" WidthRequest="35" BackgroundColor="Transparent" Padding="2"
+                                                                 BorderColor="#bf625a" BorderWidth="1" CornerRadius="25"
+                                                                 Margin="20,5,0,0"/>
+                                                    <ImageButton Source="done.png" HeightRequest="35" WidthRequest="35" BackgroundColor="Transparent" Padding="5"
+                                                                 BorderColor="Green" BorderWidth="1" CornerRadius="25"
+                                                                 Margin="20,5,0,0"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                                                <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Margin="0,5,10,0">
+                                                    <ImageButton Source="clock.png"  BackgroundColor="Transparent"
+                                                             HeightRequest="16" WidthRequest="16" Margin="2,1,0,0"/>
+                                                    <Label Text="{Binding }" TextColor="White"
+                                                           FontSize="14" FontAttributes="Bold" Margin="-3,0,0,0"/>
+                                                </StackLayout>
+                                                <Label  FontAttributes="Bold" Text="{Binding }"
+                                                        FontSize="20"
+                                                        TextColor="white" Margin="-95,-15,0,0"/>
+                                                <Label Text="{Binding }"
+                                                       TextColor="White" Margin="-95,10,0,0" FontSize="13"
+                                                       FontAttributes="Bold"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+                <Button Text="Load more"
+                        TextColor="White" Margin="5" BackgroundColor="#0095C5" IsVisible="{Binding Hide, Mode=TwoWay}"
+                        CornerRadius="8" FontAttributes="Bold" FontSize="18" Command="{Binding CommandLoadScroll}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
