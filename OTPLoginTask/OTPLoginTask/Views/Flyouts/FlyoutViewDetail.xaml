@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Pages="clr-namespace:OTPLoginTask.Views.Pages"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" xmlns:flyouts="clr-namespace:OTPLoginTask.ViewModels.Flyouts" x:DataType="flyouts:FlyoutViewDetailViewModel"
+            xmlns:Models="clr-namespace:OTPLoginTask.Models"
+            Models:ViewModelLocator.AutoWireViewModel="True"
+            android:TabbedPage.ToolbarPlacement="Bottom" SelectedTabColor="#0094C5"
+            UnselectedTabColor="Gray" Title="" 
+            x:Class="OTPLoginTask.Views.Flyouts.FlyoutViewDetail"
+            >
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <ImageButton Source="XamarinLogo.png" BackgroundColor="Transparent"
+                         Margin="100,0,0,0"/>
+            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Margin="0,0,10,5">
+                <StackLayout>
+                    <ImageButton Source="bell.png"  Margin="18,5,0,0"
+                                 BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand"
+                                 HeightRequest="40" WidthRequest="40" Command="{Binding CommandNotificationPage}"/>
+                </StackLayout>
+                <StackLayout Margin="-12,3,0,0">
+                    <Button Text="{Binding TotalNotifications}" Padding="-2" HeightRequest="20" WidthRequest="20" Margin="-13,8,0,0" FontSize="11"
+                            FontAttributes="Bold"
+                            BackgroundColor="#0095C5" TextColor="White" CornerRadius="25" BorderColor="White" BorderWidth="1"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <Pages:HomeView Title="Home" IconImageSource="home.png" TabIndex="0"/>
+    <Pages:SearchView Title="Search" IconImageSource="search.png" TabIndex="1"/>
+    <Pages:AboutView Title="About" IconImageSource="about.png" TabIndex="2"/>
+    <Pages:AccountView Title="Account" IconImageSource="person.png" TabIndex="3"/>
+</TabbedPage>

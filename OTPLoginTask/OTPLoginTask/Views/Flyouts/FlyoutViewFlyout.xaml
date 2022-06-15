@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="OTPLoginTask.Views.Flyouts.FlyoutViewFlyout"
+             Title="Flyout">
+    <StackLayout>
+        <StackLayout>
+            <Frame HeightRequest="90" BackgroundColor="#0094C5" Padding="0">
+                <StackLayout Orientation="Horizontal" Margin="10,5">
+                    <ImageButton Source="Rahul.png" HeightRequest="30" WidthRequest="80" 
+                                  CornerRadius="8" BorderWidth="2" Padding="5"/>
+
+                    <StackLayout>
+                        <Label Text="Rahul Hajare" TextColor="White" FontAttributes="Bold"
+                               FontSize="18" Margin="20,10,0,0"/>
+                        <Label Text="Ahmednagar, Maharashtra" TextColor="White"
+                               Margin="20,0,0,0"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        <!--for other section-->
+        <StackLayout Margin="5,-1">
+            <StackLayout Margin="0,1" BackgroundColor="#0094C5" HeightRequest="50" Orientation="Horizontal">
+                <StackLayout HorizontalOptions="Start">
+                    <ImageButton Source="about.png" BackgroundColor="Transparent" Margin="5,12"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Start">
+                    <Label Text="About" FontSize="18" TextColor="White"
+                            BackgroundColor="Transparent" Margin="20,13,0,0"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Margin="5,-1">
+            <StackLayout Margin="0,1"  HeightRequest="50" Orientation="Horizontal">
+                <StackLayout HorizontalOptions="Start">
+                    <ImageButton Source="browse.png" BackgroundColor="Transparent" Margin="15,19,0,0" HeightRequest="20"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Start">
+                    <Label Text="Browse" FontSize="18" TextColor="Black" 
+                            BackgroundColor="Transparent" Margin="20,13,0,0"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Margin="5,-1">
+            <StackLayout Margin="0,1"  HeightRequest="50" Orientation="Horizontal">
+                <StackLayout HorizontalOptions="Start">
+                    <ImageButton Source="logout.png" BackgroundColor="Transparent" Margin="15,19,0,0" HeightRequest="20"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Start">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Logout" FontSize="18" TextColor="Black"
+                            BackgroundColor="Transparent" Margin="20,13,0,0">
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

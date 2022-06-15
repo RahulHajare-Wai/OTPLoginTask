@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:OTPLoginTask.ViewModels" x:DataType="viewmodels:WelcomeViewViewModel"
+             xmlns:Models="clr-namespace:OTPLoginTask.Models"
+             Models:ViewModelLocator.AutoWireViewModel="True"
+             x:Class="OTPLoginTask.Views.WelcomeView">
+    <ContentPage.Content>
+        <StackLayout Margin="0,210,0,0">
+            <StackLayout>
+                <ImageButton Source="{Binding LogoImage}" BackgroundColor="#0099C8" HeightRequest="180" WidthRequest="180" Margin="110,0"
+                             CornerRadius="25"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="0,50,0,0">
+                <StackLayout HorizontalOptions="Start">
+                </StackLayout>
+                <StackLayout HorizontalOptions="EndAndExpand">
+                    <Button Text="{Binding ButtonText}" WidthRequest="180" FontSize="11"
+                            HorizontalOptions="EndAndExpand" TextColor="White" Command="{Binding CommandLogin}"
+                            Margin="2,10" BackgroundColor="#0099C8" CornerRadius="3"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
