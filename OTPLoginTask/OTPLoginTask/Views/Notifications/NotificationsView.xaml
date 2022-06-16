@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:notifications="clr-namespace:OTPLoginTask.ViewModels.Notifications" x:DataType="notifications:NotificationsViewViewModel"
-             xmlns:Model="clr-namespace:OTPLoginTask.Models"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:notifications="clr-namespace:OTPLoginTask.ViewModels.Notifications" 
              NavigationPage.HasNavigationBar="False"
-             Model:ViewModelLocator.AutoWireViewModel="True"
              x:Class="OTPLoginTask.Views.Notifications.NotificationsView">
+    <ContentPage.BindingContext>
+        <notifications:NotificationsViewViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <!--top navigation section-->
@@ -59,13 +60,13 @@
                                                 <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Margin="0,5,10,0">
                                                     <ImageButton Source="clock.png"  BackgroundColor="Transparent"
                                                              HeightRequest="16" WidthRequest="16" Margin="2,1,0,0"/>
-                                                    <Label Text="{Binding }" TextColor="White"
+                                                    <Label Text="{Binding NotificationTime}" TextColor="White"
                                                            FontSize="14" FontAttributes="Bold" Margin="-3,0,0,0"/>
                                                 </StackLayout>
-                                                <Label  FontAttributes="Bold" Text="{Binding }"
+                                                <Label  FontAttributes="Bold" Text="{Binding NotificationTitle}"
                                                         FontSize="20"
                                                         TextColor="white" Margin="-95,-15,0,0"/>
-                                                <Label Text="{Binding }"
+                                                <Label Text="{Binding NotificationDescription}"
                                                        TextColor="White" Margin="-95,10,0,0" FontSize="13"
                                                        FontAttributes="Bold"/>
                                             </StackLayout>

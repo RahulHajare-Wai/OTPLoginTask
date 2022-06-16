@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:otpviews="clr-namespace:OTPLoginTask.ViewModels.OTPViews" x:DataType="otpviews:MobileNumberViewViewModel"
-             xmlns:Models="clr-namespace:OTPLoginTask.Models"
+             xmlns:Models="clr-namespace:OTPLoginTask.Models" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Models:ViewModelLocator.AutoWireViewModel="True"
              x:Class="OTPLoginTask.Views.OTPViews.MobileNumberView">
+
+
     <ContentPage.Content>
+
         <Grid Margin="0,0,0,0" BackgroundColor="White">
             <StackLayout>
-
                 <!--top navigation section-->
                 <StackLayout Margin="70,80,70,0"  Orientation="Horizontal">
-                    <Frame HeightRequest="-32" WidthRequest="35" HorizontalOptions="StartAndExpand"
-                           BackgroundColor="#0094C5" CornerRadius="5" x:Name="NumberPageIndicator">
+                    <Frame HeightRequest="-32" WidthRequest="35" HorizontalOptions="StartAndExpand"  BackgroundColor="#0094C5" CornerRadius="5" x:Name="NumberPageIndicator">
                     </Frame>
                     <Frame HeightRequest="-32" WidthRequest="35" HorizontalOptions="CenterAndExpand"
                            BackgroundColor="#E6E6E6" CornerRadius="5" x:Name="OTPPageIndicator">
@@ -31,11 +32,13 @@
                            HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#A5A4A8" />
                     <Label Text="{Binding MobilePageThirdSubTitle}" TextColor="#A5A4A8"
                            HorizontalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold"/>
+                    
+                    
 
                 </StackLayout>
                 <!--Mobile Number and button section-->
                 <StackLayout Margin="20,25,20,0" >
-                    <Frame BackgroundColor="White" HeightRequest="180" CornerRadius="8">
+                    <Frame BackgroundColor="White" HeightRequest="180" CornerRadius="8" xct:ShadowEffect.Color="Black">
                         <StackLayout Margin="0,30,0,0">
                             <Frame BorderColor="Transparent" CornerRadius="5" BackgroundColor="#EBF0F3"
                                                        HeightRequest="10" HasShadow="False">
@@ -49,14 +52,15 @@
                                              Y1="0"
                                               X2="0"
                                               Y2="120"
-                                              Stroke="gray" Margin="40,0,0,0" />
-                                        <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" MaxLength="10" Placeholder="  -- -- -- -- -- " WidthRequest="150" 
-                                               TextColor="Black" Text="{Binding MobileNumber}" x:Name="MobNo" TextChanged="MobNo_TextChanged"   IsEnabled="True"
+                                              Stroke="#d1d1d1" Margin="40,0,0,0" />
+                                        <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" MaxLength="10" WidthRequest="150" 
+                                               TextColor="Black" Text="{Binding MobileNumber}" Keyboard="Telephone" x:Name="MobNo" IsEnabled="True" TextChanged="MobNo_TextChanged"
                                                Margin="0,2,-10,0"
-                                                   />
+                                                   >
+                                        </Entry>
                                     </StackLayout>
                                     <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="20">
-                                        <ImageButton Source="success.png" HeightRequest="20"  x:Name="successImage"  IsVisible="false"
+                                        <ImageButton Source="success.png" HeightRequest="20"  x:Name="successImage" IsVisible="false"
                                                      BackgroundColor="Transparent" Margin="0,30,0,0"/>
                                     </StackLayout>
                                 </StackLayout>

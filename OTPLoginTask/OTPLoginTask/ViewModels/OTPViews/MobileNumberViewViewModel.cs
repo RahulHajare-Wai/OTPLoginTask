@@ -19,15 +19,26 @@ namespace OTPLoginTask.ViewModels.OTPViews
         public string MobilePageThirdSubTitle { get; set; }
         public string MobilePageCountryCode { get; set; }
         public ICommand SendOTP { get; set; }
+        public Command MobileNumberChanged { get; set; }
         public string MobileNumber { get; set; }
         public MobileNumberViewViewModel()
         {
+            VerifyMobileNumber();
             SendOTP = new Command(() => { SendOTPToUser(); });
             MobilePageTitle = "Login With Mobile Number";
             MobilePageSubTitle = "Enter your mobile number we will sent";
             MobilePageThirdSubTitle = "Enter your mobile number we will sent";
             MobilePageCountryCode = "+91";
+            
         }
+
+        private void VerifyMobileNumber()
+        {
+            MobileNumberChanged=new Command(() =>{
+                Application.Current.MainPage.DisplayAlert("", "Hi", "");
+            });
+        }
+
         public void SendOTPToUser()
         {
             if (MobileNumber == null)

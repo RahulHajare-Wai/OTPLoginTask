@@ -14,6 +14,7 @@ namespace OTPLoginTask.ViewModels.OTPViews
     {
         public string success = "False";
         public MvvmHelpers.Commands.Command SubmitOTP { get; set; }
+        public MvvmHelpers.Commands.Command CommandFirstDigit { get; set; }
         public string firstDigit { get; set; }
         public string secondDigit { get; set; }
         public string thirdDigit { get; set; }
@@ -21,10 +22,22 @@ namespace OTPLoginTask.ViewModels.OTPViews
         public string fifthDigit { get; set; }
         public string sixthDigit { get; set; }
         public string MobileNumber { get; set; }
+        public bool IsFocus { get; set; }
         public VerifyOTPViewViewModel()
         {
+            TextFocus();
             SubmitOTP = new MvvmHelpers.Commands.Command(() => { VerifyAndSubmitOTP(); });
             MobileNumber = $"+91 {Preferences.Get("MobileNumber", string.Empty)}";
+        }
+
+        private void TextFocus()
+        {
+            CommandFirstDigit = new MvvmHelpers.Commands.Command(()=>{ FocusToSecondText(); });
+        }
+
+        private void FocusToSecondText()
+        {
+            IsFocus = true;
         }
 
         private void VerifyAndSubmitOTP()

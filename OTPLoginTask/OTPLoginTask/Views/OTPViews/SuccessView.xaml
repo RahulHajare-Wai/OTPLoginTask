@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasNavigationBar="False"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:otpviews="clr-namespace:OTPLoginTask.ViewModels.OTPViews" x:DataType="otpviews:SuccessViewViewModel" NavigationPage.HasNavigationBar="False"
+             
              x:Class="OTPLoginTask.Views.OTPViews.SuccessView">
     <ContentPage.Content>
         <Grid Margin="0,0,0,0" BackgroundColor="White">
@@ -10,15 +11,9 @@
                 <StackLayout Margin="70,80,70,0"  Orientation="Horizontal">
                     <Frame HeightRequest="-32" WidthRequest="35" HorizontalOptions="StartAndExpand"
                            BackgroundColor="#E6E6E6" CornerRadius="5" x:Name="NumberPageIndicator">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="NumberPageIndicatorTapGestureRecognizer_Tapped"/>
-                        </Frame.GestureRecognizers>
                     </Frame>
                     <Frame HeightRequest="-32" WidthRequest="35" HorizontalOptions="CenterAndExpand"
                            BackgroundColor="#E6E6E6" CornerRadius="5" x:Name="OTPPageIndicator">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer/>
-                        </Frame.GestureRecognizers>
                     </Frame>
                     <Frame HeightRequest="-32" WidthRequest="35" HorizontalOptions="EndAndExpand"
                            BackgroundColor="#0094C5" CornerRadius="5" x:Name="successIndicator">
@@ -28,24 +23,19 @@
 
                 <!--icon section-->
                 <StackLayout Margin="0,80,0,0" Orientation="Horizontal">
-                    <ImageButton  HorizontalOptions="CenterAndExpand" x:Name="responseImage"
+                    <ImageButton  HorizontalOptions="CenterAndExpand" x:Name="responseImage" Source="{Binding ResponseImage}"
                                  BackgroundColor="Transparent" HeightRequest="100" Aspect="AspectFit"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical" Margin="0,0,0,0">
-                    <Label Text="" HorizontalOptions="Center" x:Name="SuccessMessage"
+                    <Label Text="{Binding SuccessMessage}" HorizontalOptions="Center" x:Name="SuccessMessage"
                            TextColor="Black" FontSize="22" FontAttributes="Bold" />
-                    <Label Text="" HorizontalOptions="Center" 
+                    <Label Text="{Binding SuccessSubMessage}" HorizontalOptions="Center" 
                            FontSize="18" FontAttributes="Bold" TextColor="Gray" x:Name="successSubmessage"/>
                 </StackLayout>
 
 
                 <StackLayout VerticalOptions="EndAndExpand">
-
-
                 </StackLayout>
-                <Button Text="Continue" Margin="40,20" VerticalOptions="EndAndExpand" x:Name="ButtonContinue"
-                        BackgroundColor="#0094C5" TextColor="White" FontSize="15" FontAttributes="Bold"
-                        CornerRadius="25" Clicked="ButtonContinue_Clicked"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

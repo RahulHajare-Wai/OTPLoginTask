@@ -14,7 +14,6 @@ namespace OTPLoginTask.ViewModels.Notifications
 {
     public class NotificationsViewViewModel : BaseViewModel, INotifyPropertyChanged
     {
-
         public string BackIcon { get; set; }
         public bool Hide { get; set; }
         public string PageTitle { get; set; }
@@ -114,6 +113,8 @@ namespace OTPLoginTask.ViewModels.Notifications
                         }
                     }
                     Preferences.Set("TotalNotifications", notification.Count.ToString());
+
+
                 }
                 else
                     Application.Current.MainPage.DisplayAlert("Alert", "No Notifications Avoilable", "OK");
@@ -134,5 +135,36 @@ namespace OTPLoginTask.ViewModels.Notifications
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public string NotificationTitle
+        {
+            get => NotificationTitle;
+            set
+            {
+                NotificationTitle = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string NotificationDescription
+        {
+            get => NotificationDescription;
+            set
+            {
+                NotificationDescription = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string NotificationTime
+        {
+            get => NotificationTime;
+            set
+            {
+                NotificationTime = value;
+                OnPropertyChanged();
+            }
+        }
+
     }
 }

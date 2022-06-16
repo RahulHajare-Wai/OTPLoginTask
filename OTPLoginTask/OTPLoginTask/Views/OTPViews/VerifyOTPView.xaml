@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:otpviews="clr-namespace:OTPLoginTask.ViewModels.OTPViews" x:DataType="otpviews:VerifyOTPViewViewModel"
-             xmlns:Models="clr-namespace:OTPLoginTask.Models"
+             xmlns:Models="clr-namespace:OTPLoginTask.Models" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Models:ViewModelLocator.AutoWireViewModel="True"
              NavigationPage.HasNavigationBar="False"
+             xmlns:Behaviours="clr-namespace:OTPLoginTask.Behaviours"
              x:Class="OTPLoginTask.Views.OTPViews.VerifyOTPView">
     <ContentPage.Content>
             <Grid Margin="0,0,0,0" BackgroundColor="White">
@@ -41,49 +42,57 @@
                 </StackLayout>
                 <!--Mobile Number and button section-->
                     <StackLayout Margin="20,25,20,0" >
-                        <Frame BackgroundColor="White"  HeightRequest="180" CornerRadius="8">
+
+                    <Frame BackgroundColor="White"  HeightRequest="180" CornerRadius="8" xct:ShadowEffect.Color="Black">
                             <StackLayout Margin="-10,30,-10,0">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Frame BorderColor="Transparent" CornerRadius="5" BackgroundColor="#EBF0F3" Padding="10,0,10,0"
-                                                       HeightRequest="40" HasShadow="False" WidthRequest="20"  Margin="1,0">
+                                                       HeightRequest="40" HasShadow="False" WidthRequest="20" xct:ShadowEffect.Color="Black"
+                                            Margin="1,0">
                                         <StackLayout Orientation="Horizontal" Margin="-15,-35,0,-35">
-                                            <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold"
-                                               TextColor="Black" Text="{Binding firstDigit}" Margin="16,0,0,0" MaxLength="1"/>
+                                        <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" x:Name="FirstDigitEntry"
+                                               TextColor="Black" Text="{Binding firstDigit}" Margin="16,0,0,0" MaxLength="1" Keyboard="Telephone" TextChanged="FirstDigitEntry_TextChanged">
+                                            <Entry.Behaviors>
+                                                <Behaviours:EntryFocusBehavior NextFocusElementName="secondDigit"/>
+                                            </Entry.Behaviors>
+                                        </Entry>
+
+                                    </StackLayout>
+                                    </Frame>
+                                    <Frame BorderColor="Transparent" CornerRadius="5" BackgroundColor="#EBF0F3" Padding="10,0,10,0"
+                                                       HeightRequest="40" HasShadow="False" WidthRequest="20" xct:ShadowEffect.Color="Black"  Margin="1,0" >
+                                        <StackLayout Orientation="Horizontal" Margin="-15,-35,0,-35">
+                                        <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" IsVisible="True" x:Name="SecondDigitEntry"
+                                               TextColor="Black" Text="{Binding secondDigit}" Margin="16,0,0,0" MaxLength="1" Keyboard="Telephone" TextChanged="SecondDigitEntry_TextChanged"/>
                                         </StackLayout>
                                     </Frame>
                                     <Frame BorderColor="Transparent" CornerRadius="5" BackgroundColor="#EBF0F3" Padding="10,0,10,0"
-                                                       HeightRequest="40" HasShadow="False" WidthRequest="20"  Margin="1,0">
+                                                       HeightRequest="40" HasShadow="False" WidthRequest="20" xct:ShadowEffect.Color="Black"
+                                             Margin="1,0">
                                         <StackLayout Orientation="Horizontal" Margin="-15,-35,0,-35">
-                                            <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold"
-                                               TextColor="Black" Text="{Binding secondDigit}" Margin="16,0,0,0" MaxLength="1"/>
+                                        <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" x:Name="ThirdDigitEntry" TextChanged="ThirdDigitEntry_TextChanged"
+                                               TextColor="Black" Text="{Binding thirdDigit}"  Margin="16,0,0,0" MaxLength="1" Keyboard="Telephone"/>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Frame BorderColor="Transparent" CornerRadius="5" BackgroundColor="#EBF0F3" Padding="10,0,10,0" 
+                                                       HeightRequest="40" HasShadow="False" WidthRequest="20" xct:ShadowEffect.Color="Black"  Margin="1,0">
+                                        <StackLayout Orientation="Horizontal" Margin="-15,-35,0,-35">
+                                        <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" x:Name="FourthDigitEntry" TextChanged="FourthDigitEntry_TextChanged"
+                                               TextColor="Black" Text="{Binding fourthDigit}" Margin="16,0,0,0" MaxLength="1" Keyboard="Telephone"/>
                                         </StackLayout>
                                     </Frame>
                                     <Frame BorderColor="Transparent" CornerRadius="5" BackgroundColor="#EBF0F3" Padding="10,0,10,0"
-                                                       HeightRequest="40" HasShadow="False" WidthRequest="20"  Margin="1,0">
+                                                       HeightRequest="40" HasShadow="False" WidthRequest="20" xct:ShadowEffect.Color="Black"  Margin="1,0">
                                         <StackLayout Orientation="Horizontal" Margin="-15,-35,0,-35">
-                                            <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold"
-                                               TextColor="Black" Text="{Binding thirdDigit}" Margin="16,0,0,0" MaxLength="1"/>
-                                        </StackLayout>
-                                    </Frame>
-                                    <Frame BorderColor="Transparent" CornerRadius="5" BackgroundColor="#EBF0F3" Padding="10,0,10,0"
-                                                       HeightRequest="40" HasShadow="False" WidthRequest="20"  Margin="1,0">
-                                        <StackLayout Orientation="Horizontal" Margin="-15,-35,0,-35">
-                                            <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold"
-                                               TextColor="Black" Text="{Binding fourthDigit}" Margin="16,0,0,0" MaxLength="1"/>
-                                        </StackLayout>
-                                    </Frame>
-                                    <Frame BorderColor="Transparent" CornerRadius="5" BackgroundColor="#EBF0F3" Padding="10,0,10,0"
-                                                       HeightRequest="40" HasShadow="False" WidthRequest="20"  Margin="1,0">
-                                        <StackLayout Orientation="Horizontal" Margin="-15,-35,0,-35">
-                                            <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold"
-                                               TextColor="Black" Text="{Binding fifthDigit}" Margin="16,0,0,0" MaxLength="1"/>
+                                        <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" x:Name="FifthDigitEntry" TextChanged="FifthDigitEntry_TextChanged"
+                                               TextColor="Black" Text="{Binding fifthDigit}" Margin="16,0,0,0" MaxLength="1" Keyboard="Telephone"/>
                                         </StackLayout>
                                     </Frame>
                                     <Frame CornerRadius="5" BackgroundColor="#EBF0F3" Padding="10,0,10,0"
                                                        HeightRequest="40" HasShadow="False" WidthRequest="20"  Margin="1,0">
                                         <StackLayout Orientation="Horizontal" Margin="-15,-35,0,-35">
-                                            <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" x:Name="sixthDigitEntry"
-                                               TextColor="Black" Text="{Binding sixthDigit}" Margin="16,0,0,0" MaxLength="1" />
+                                            <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" x:Name="SixthDigitEntry"
+                                               TextColor="Black" Text="{Binding sixthDigit}" Margin="16,0,0,0" MaxLength="1" Keyboard="Telephone"/>
                                         </StackLayout>
                                     </Frame>
                                 </StackLayout>

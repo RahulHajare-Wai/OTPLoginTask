@@ -16,7 +16,7 @@
                 <StackLayout HorizontalOptions="Start">
                 </StackLayout>
                 <StackLayout HorizontalOptions="EndAndExpand">
-                    <Button Text="{Binding ButtonText}" WidthRequest="180" FontSize="11"
+                    <Button Text="{Binding ButtonText}" WidthRequest="180" FontSize="13"
                             HorizontalOptions="EndAndExpand" TextColor="White" Command="{Binding CommandLogin}"
                             Margin="2,10" BackgroundColor="#0099C8" CornerRadius="3"/>
                 </StackLayout>
