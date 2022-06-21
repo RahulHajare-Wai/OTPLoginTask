@@ -9,12 +9,12 @@ using Xamarin.Forms;
 
 namespace OTPLoginTask.ViewModels.Flyouts
 {
-    public class FlyoutViewDetailViewModel:BaseViewModel
+    public class FlyoutViewDetailModel:BaseViewModel
     {
         public ICommand CommandNotificationPage { get; set; }
         public string TotalNotifications { get; set; }
 
-        public FlyoutViewDetailViewModel()
+        public FlyoutViewDetailModel()
         {
             CommandNotificationPage = new Command(() => { NavigateToNotificationPage(); });
             TotalNotifications = Preferences.Get("TotalNotifications", string.Empty);

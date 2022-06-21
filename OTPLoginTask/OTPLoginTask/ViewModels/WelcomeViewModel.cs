@@ -4,13 +4,13 @@ using Xamarin.Forms;
 
 namespace OTPLoginTask.ViewModels
 {
-    public class WelcomeViewViewModel : BaseViewModel
+    public class WelcomeViewModel : BaseViewModel
     {
         public string Greet { get; set; }
         public string LogoImage { get; set; }
         public string ButtonText { get; set; }
         public MvvmHelpers.Commands.Command CommandLogin { get; set; }
-        public WelcomeViewViewModel()
+        public WelcomeViewModel()
         {
             LogoImage = "xamarinlogo.png";
             Greet = "Base file is working.";

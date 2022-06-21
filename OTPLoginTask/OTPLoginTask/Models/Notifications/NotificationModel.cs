@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OTPLoginTask.Models
+namespace OTPLoginTask.Models.Notifications
 {
     public class NotificationModel
     {

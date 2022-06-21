@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:notifications="clr-namespace:OTPLoginTask.ViewModels.Notifications" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:notifications="clr-namespace:OTPLoginTask.ViewModels.Notifications"
+             xmlns:Base="clr-namespace:OTPLoginTask.ViewModels.Base" 
+             Base:ViewModelLocator.AutoWireViewModel="True"
              NavigationPage.HasNavigationBar="False"
              x:Class="OTPLoginTask.Views.Notifications.NotificationsView">
     <ContentPage.BindingContext>
-        <notifications:NotificationsViewViewModel/>
+        <notifications:NotificationsViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>

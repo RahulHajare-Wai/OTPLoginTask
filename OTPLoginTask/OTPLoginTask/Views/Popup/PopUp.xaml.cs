@@ -7,22 +7,16 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace OTPLoginTask.Views.OTPViews
+namespace OTPLoginTask.Views.Popup
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VerifyOTPView : ContentPage
+    public partial class PopUp : Rg.Plugins.Popup.Pages.PopupPage
     {
-        public VerifyOTPView()
+        public PopUp(String message)
         {
+
             InitializeComponent();
+            MessageEntry.Text = message.ToString();
         }
-
-        
-
-
-
-
-
-
-
+    }
 }

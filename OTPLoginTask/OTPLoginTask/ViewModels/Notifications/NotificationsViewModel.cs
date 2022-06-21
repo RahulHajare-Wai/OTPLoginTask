@@ -1,8 +1,10 @@
 ﻿using MvvmHelpers;
 using OTPLoginTask.Databases;
-using OTPLoginTask.Models;
+using OTPLoginTask.Models.Notifications;
 using OTPLoginTask.Views.Flyouts;
 using OTPLoginTask.Views.Notifications;
+using OTPLoginTask.Views.Popup;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,7 +14,7 @@ using Xamarin.Forms;
 
 namespace OTPLoginTask.ViewModels.Notifications
 {
-    public class NotificationsViewViewModel : BaseViewModel, INotifyPropertyChanged
+    public class NotificationsViewModel : BaseViewModel, INotifyPropertyChanged
     {
         public string BackIcon { get; set; }
         public bool Hide { get; set; }
@@ -21,8 +23,6 @@ namespace OTPLoginTask.ViewModels.Notifications
         public Command CommandBackPage { get; set; }
         public Command CommandLoadScroll { get; set; }
         private ObservableCollection<NotificationModel> _notificationList { get; set; }
-
-
         public ObservableCollection<NotificationModel> NotificationList
         {
             get { return _notificationList; }
@@ -34,7 +34,7 @@ namespace OTPLoginTask.ViewModels.Notifications
         }
 
         public Command btnAddNotifications { get; set; }
-        public NotificationsViewViewModel()
+        public NotificationsViewModel()
         {
             NotificationList = new ObservableCollection<NotificationModel>();
             PageLoad();
@@ -117,9 +117,8 @@ namespace OTPLoginTask.ViewModels.Notifications
 
                 }
                 else
-                    Application.Current.MainPage.DisplayAlert("Alert", "No Notifications Avoilable", "OK");
+                    PopupNavigation.Instance.PushAsync(new PopUp("No available Notifications !"));
             }
-
             catch (Exception ex)
             {
                 Application.Current.MainPage.DisplayAlert("Alert", ex.ToString(), "OK");

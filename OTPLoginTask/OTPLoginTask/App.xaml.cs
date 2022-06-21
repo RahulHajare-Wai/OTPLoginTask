@@ -12,7 +12,7 @@ namespace OTPLoginTask
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new FlyoutView());
+            MainPage = new NavigationPage(new WelcomeView());
         }
 
         protected override void OnStart()

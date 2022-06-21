@@ -17,16 +17,6 @@ namespace OTPLoginTask.Views.OTPViews
             InitializeComponent();
         }
 
-        private void MobNo_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if(MobNo.Text.Length==10)
-            {
-                successImage.IsVisible = true;
-            }
-            else
-            {
-                successImage.IsVisible = false;
-            }
-        }
+       
     }
 }

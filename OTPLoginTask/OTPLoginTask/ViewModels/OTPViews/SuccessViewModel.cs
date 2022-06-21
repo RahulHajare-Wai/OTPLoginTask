@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace OTPLoginTask.ViewModels.OTPViews
 {
-    public class SuccessViewViewModel : BaseViewModel
+    public class SuccessViewModel : BaseViewModel
     {
         public string Success;
         public string SuccessMessage { get; set; }
@@ -17,7 +17,7 @@ namespace OTPLoginTask.ViewModels.OTPViews
         public string ButtonText { get; set; }
         public bool ButtonVisibility { get; set; }
 
-        public SuccessViewViewModel(String success)
+        public SuccessViewModel(String success)
         {
             Success = success;
             ShowTextInfo();

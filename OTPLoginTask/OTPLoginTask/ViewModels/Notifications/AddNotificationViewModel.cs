@@ -1,6 +1,6 @@
 ﻿using MvvmHelpers;
 using OTPLoginTask.Databases;
-using OTPLoginTask.Models;
+using OTPLoginTask.Models.Notifications;
 using OTPLoginTask.Views.Notifications;
 using System;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace OTPLoginTask.ViewModels.Notifications
 {
-    public class AddNotificationViewViewModel : BaseViewModel, INotifyPropertyChanged
+    public class AddNotificationViewModel : BaseViewModel, INotifyPropertyChanged
     {
         public string PageTitle { get; set; }
         private NotificationModel _notifications { get; set; }
@@ -25,7 +25,8 @@ namespace OTPLoginTask.ViewModels.Notifications
         }
 
         public Command CommandSaveNotifications { get; set; }
-        public AddNotificationViewViewModel()
+        public Command CommandBackPage { get; set; }
+        public AddNotificationViewModel()
         {
             PageTitle = "Add Notification";
             notification = new NotificationModel();
@@ -34,6 +35,12 @@ namespace OTPLoginTask.ViewModels.Notifications
             notification.NotificationDescription = "";
             notification.NotificationTime = DateTime.Now.ToShortTimeString();
             CommandSaveNotifications = new Command(SaveNotifications);
+            CommandBackPage = new Command(() => { GoToBackPage(); });
+        }
+
+        private void GoToBackPage()
+        {
+            Application.Current.MainPage.Navigation.PopAsync();
         }
 
         public void SaveNotifications()

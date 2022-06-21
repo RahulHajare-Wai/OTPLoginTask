@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" NavigationPage.HasNavigationBar="False"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:otpviews="clr-namespace:OTPLoginTask.ViewModels.OTPViews" x:DataType="otpviews:MobileNumberViewViewModel"
-             xmlns:Models="clr-namespace:OTPLoginTask.Models" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             Models:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:otpviews="clr-namespace:OTPLoginTask.ViewModels.OTPViews" x:DataType="otpviews:MobileNumberViewModel"
+             xmlns:Base="clr-namespace:OTPLoginTask.ViewModels.Base" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Base:ViewModelLocator.AutoWireViewModel="True"
              x:Class="OTPLoginTask.Views.OTPViews.MobileNumberView">
 
 
@@ -32,8 +32,7 @@
                            HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="#A5A4A8" />
                     <Label Text="{Binding MobilePageThirdSubTitle}" TextColor="#A5A4A8"
                            HorizontalOptions="CenterAndExpand" FontSize="18" FontAttributes="Bold"/>
-                    
-                    
+                   
 
                 </StackLayout>
                 <!--Mobile Number and button section-->
@@ -54,13 +53,18 @@
                                               Y2="120"
                                               Stroke="#d1d1d1" Margin="40,0,0,0" />
                                         <Entry HorizontalOptions="FillAndExpand" FontSize="18" FontAttributes="Bold" MaxLength="10" WidthRequest="150" 
-                                               TextColor="Black" Text="{Binding MobileNumber}" Keyboard="Telephone" x:Name="MobNo" IsEnabled="True" TextChanged="MobNo_TextChanged"
+                                               TextColor="Black" Text="{Binding MobileNumber}" Keyboard="Telephone" x:Name="MobNo"
                                                Margin="0,2,-10,0"
                                                    >
+                                            <Entry.Behaviors>
+                                                <xct:EventToCommandBehavior 
+                                                            EventName="TextChanged"
+                                                            Command="{Binding CommandValidate}"/>
+                                            </Entry.Behaviors>
                                         </Entry>
                                     </StackLayout>
                                     <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="20">
-                                        <ImageButton Source="success.png" HeightRequest="20"  x:Name="successImage" IsVisible="false"
+                                        <Image Source="{Binding VerifyImage}" HeightRequest="20"  x:Name="successImage"
                                                      BackgroundColor="Transparent" Margin="0,30,0,0"/>
                                     </StackLayout>
                                 </StackLayout>

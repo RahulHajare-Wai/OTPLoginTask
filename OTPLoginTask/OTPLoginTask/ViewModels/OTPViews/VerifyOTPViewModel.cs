@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace OTPLoginTask.ViewModels.OTPViews
 {
-    public class VerifyOTPViewViewModel : BaseViewModel
+    public class VerifyOTPViewModel : BaseViewModel
     {
         public string success = "False";
         public MvvmHelpers.Commands.Command SubmitOTP { get; set; }
@@ -23,7 +23,8 @@ namespace OTPLoginTask.ViewModels.OTPViews
         public string sixthDigit { get; set; }
         public string MobileNumber { get; set; }
         public bool IsFocus { get; set; }
-        public VerifyOTPViewViewModel()
+        public MvvmHelpers.Commands.Command FocusSecondDigit { get; set; }
+        public VerifyOTPViewModel()
         {
             TextFocus();
             SubmitOTP = new MvvmHelpers.Commands.Command(() => { VerifyAndSubmitOTP(); });
@@ -32,12 +33,13 @@ namespace OTPLoginTask.ViewModels.OTPViews
 
         private void TextFocus()
         {
-            CommandFirstDigit = new MvvmHelpers.Commands.Command(()=>{ FocusToSecondText(); });
+            FocusSecondDigit = new MvvmHelpers.Commands.Command(() => { FocusToSecondText(); });
         }
 
         private void FocusToSecondText()
         {
-            IsFocus = true;
+            if(firstDigit.Length>0)
+                secondDigit = "";
         }
 
         private void VerifyAndSubmitOTP()

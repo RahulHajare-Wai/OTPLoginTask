@@ -18,7 +18,7 @@ namespace OTPLoginTask.Views.OTPViews
         {
             this.Success = Success;
             InitializeComponent();
-            BindingContext = new SuccessViewViewModel(Success);
+            BindingContext = new SuccessViewModel(Success);
         }
 
         

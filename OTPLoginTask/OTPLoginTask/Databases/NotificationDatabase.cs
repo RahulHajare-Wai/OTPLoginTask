@@ -1,4 +1,4 @@
-﻿using OTPLoginTask.Models;
+﻿using OTPLoginTask.Models.Notifications;
 using SQLite;
 using System;
 using System.Collections.Generic;
